@@ -10,15 +10,15 @@ from Seleccionar import *
 
 class Preguntas(App):
     def build(self):
-        self.load_kv('PreguntasPersonas.kv')
+        '''self.load_kv('PreguntasPersonas.kv')
         return PreguntasPersonas()
-        '''
+
         self.load_kv('PreguntasLugares.kv')
         return PreguntasLugares()
-
+        '''
         self.load_kv('PreguntasEventos.kv')
         return PreguntasEventos()
-    
+        '''
         self.load_kv('Seleccionar.kv')
         return Seleccionar()
         '''
