@@ -78,7 +78,7 @@ class Seleccionar(BoxLayout):
         with self.canvas:
             self.rect=Rectangle(pos=self.pos,size=self.size,source="imagenes/personas.jpg")
         self.Aceptar=Button(text="Aceptar")
-        self.Aceptar.bind(on_press=self.algo)
+        self.Aceptar.bind(on_press=self.vistapenpers)
         self.gLayoutToggle.add_widget(self.tgbtnAmigos)
         self.gLayoutToggle.add_widget(self.tgbtnFamilia)
         self.gLayoutToggle.add_widget(self.tgbtnPareja)
@@ -125,6 +125,7 @@ class Seleccionar(BoxLayout):
         with self.canvas:
             self.rect = Rectangle(pos=self.pos, size=self.size, source="imagenes/eventos.jpg")
         self.Aceptar = Button(text="Aceptar")
+        self.Aceptar.bind(on_press=self.vistapeneven)
 
         self.gLayoutform.add_widget(self.lblquien)
         self.gLayoutform.add_widget(self.lblquien2)
@@ -166,6 +167,7 @@ class Seleccionar(BoxLayout):
         with self.canvas:
             self.rect = Rectangle(pos=self.pos, size=self.size, source="imagenes/Lugares.jpg")
         self.Aceptar = Button(text="Aceptar")
+        self.Aceptar.bind(on_press=self.vistapenlug)
 
         self.gLayoutform.add_widget(self.lblquien)
         self.gLayoutform.add_widget(self.lblquien2)
@@ -182,10 +184,10 @@ class Seleccionar(BoxLayout):
 
     def vistaFinal(self, *args):
         self.remove_widget(self.vistaformpers)
-        self.lable=Label(text=("hello"+self.lblquien2.text))
+        self.lable=Label(text=("hello!! "+self.lblquien2.text))
         self.add_widget(self.lable)
 
-    def algo(self, *args):
+    def vistapenpers(self, *args):
         self.remove_widget(self.vistaformpers)
         self.box = BoxLayout(orientation="vertical")
 
@@ -196,9 +198,34 @@ class Seleccionar(BoxLayout):
         self.box.add_widget(self.buscadorArch)
 
         self.add_widget(self.box)
-    def select(self,*args):
-        try: self.label.text=args[1][0]
-        except:pass
+    def vistapeneven(self, *args):
+        self.remove_widget(self.vistaformpers)
+        self.box = BoxLayout(orientation="vertical")
+
+        self.buscadorArch = FileChooserIconView(
+            on_selection=self.select
+        )
+
+        self.box.add_widget(self.buscadorArch)
+
+        self.add_widget(self.box)
+    def vistapenlug(self, *args):
+        self.remove_widget(self.vistaformpers)
+        self.box = BoxLayout(orientation="vertical")
+
+        self.buscadorArch = FileChooserIconView(
+            on_selection=self.select
+        )
+
+        self.box.add_widget(self.buscadorArch)
+
+        self.add_widget(self.box)
+    def select(self,filename):
+        try:
+            for i in filename:
+                print("españa")
+        except:
+            pass
     pass
 
 
