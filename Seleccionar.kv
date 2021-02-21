@@ -1,11 +1,101 @@
 <Seleccionar>
     orientation:"vertical"
+
+<Boton>
     Button:
-        text: "Personas"
-        on_press: root.callback("persona")
+        size_hint: .50, .120
+<PreguntasPersonas>
+    orientation:"vertical"
+    padding: 50
+    spacing: 100
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'imagenes/personas.jpg'
+        Color:
+            rgb:145, 145, 249
+    GridLayout:
+        cols:2
+        size_hint:1,0.5
+        spacing: dp(20)
+        Label:
+            id:Quien
+            text:"¿Con quién apareces en estas fotos?"
+            color:145, 145, 249
+            size_hint:0.25,0.25
+            text_size:self.size
+            font_size:12
+            valign:'center'
+            halign:'center'
+        TextInput:
+            multiline:False
+            size:20,20
+            margin:10
+            size_hint:0.25,0.25
+        Label:
+            id:Donde
+            text:"¿Dónde apareces en estas fotos?"
+            color:145, 145, 249
+            size_hint:0.25,0.25
+            text_size:self.size
+            font_size:12
+            valign:'center'
+            halign:'center'
+        TextInput:
+            multiline:False
+            size:20,20
+            size_hint:0.25,0.25
+        Label:
+            id:Relacion
+            text:"¿Qué relacion tienes con estas personas?\n(Selecciona uno)"
+            color:145, 145, 249
+            size_hint:0.25,0.25
+            text_size:self.size
+            font_size:12
+            valign:'center'
+            halign:'center'
+        GridLayout:
+            cols:3
+            size_hint:0.25,0.25
+            spacing: 10
+            ToggleButton:
+                text:"Amigos"
+                group:"relacion"
+                text_size:self.size
+                font_size:12
+                valign:'center'
+                halign:'center'
+            ToggleButton:
+                text:"Familia"
+                group:"relacion"
+                text_size:self.size
+                font_size:12
+                valign:'center'
+                halign:'center'
+            ToggleButton:
+                text:"Relacion formal"
+                group:"relacion"
+                text_size:self.size
+                font_size:12
+                valign:'center'
+                halign:'center'
+
+        Label:
+            id:mylabel
+            text:"Personas"
+            color:145, 145, 249
+            size_hint:0.25,0.25
+            text_size:self.size
+            font_size:12
+            valign:'center'
+            halign:'center'
+        TextInput:
+            multiline:False
+            size_hint:0.25,0.25
     Button:
-        text: "Lugares"
-        on_press: root.callback("lugar")
-    Button:
-        text: "Eventos"
-        on_press: root.callback("evento")
+        size: self.size
+        text: "Aceptar"
+        on_press: print(mylabel.text)
+        size_hint:0.25,0.15

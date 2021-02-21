@@ -16,10 +16,9 @@ class Preguntas(App):
         self.load_kv('PreguntasLugares.kv')
         return PreguntasLugares()
         '''
-        self.load_kv('PreguntasEventos.kv')
+        '''self.load_kv('PreguntasEventos.kv')
         return PreguntasEventos()
         '''
         self.load_kv('Seleccionar.kv')
         return Seleccionar()
-        '''
 Preguntas().run()
