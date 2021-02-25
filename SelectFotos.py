@@ -13,14 +13,33 @@ from kivy.core.window import Window
 Builder.load_file('SelectFotos.kv')
 
 
-class MyLayout3(Widget):
-    pass
+class MyApp(App):
 
 
-class MyApp3(App):
+
     def build(self):
-        Window.clearcolor = (1,1,1,1)
-        return MyLayout3()
+        layout = BoxLayout(orientation='vertical', spacing=20, padding=50)
+        img = Image(source='icono.png',pos_hint= {'center_x': 0.5})
+        btn = Button(text='<- Volver', size_hint=(0.17,0.25),pos_hint= {'center_x': 0.1},color= (1.5,1.6,0.9,2))
+        btn1 = Button(text='Elija sus fotos',size_hint=(0.35,0.3),pos_hint= {'center_x': 0.5},color= (1.5,1.6,0.9,2))
+        btn2 = Button(text='Ver numero de fotos seleccionadas', size_hint=(0.35, 0.3), pos_hint={'center_x': 0.5}, color=(1.5, 1.6, 0.9, 2))
+        btn4 = Button(text='Continuar ->', size_hint=(0.17, 0.25), pos_hint={'center_x': 0.9}, color=(1.5, 1.6, 0.9, 2))
+
+        layout.add_widget(btn)
+
+        layout.add_widget(img)
+        layout.add_widget(btn1)
+        layout.add_widget(btn2)
+        layout.add_widget(btn4)
 
 
-MyApp3().run()
+
+
+        return layout
+
+
+
+
+
+
+MyApp().run()
