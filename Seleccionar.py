@@ -7,6 +7,7 @@ from kivy.uix.widget import Widget
 from kivy.uix.textinput import TextInput
 from kivy.uix.togglebutton import ToggleButton
 from kivy.uix.filechooser import FileChooserIconView
+from reportlab.pdfgen import canvas
 from kivy.graphics import *
 from PreguntasPersonas import *
 from PreguntasLugares import *
@@ -78,7 +79,10 @@ class Seleccionar(BoxLayout):
         with self.canvas:
             self.rect=Rectangle(pos=self.pos,size=self.size,source="imagenes/personas.jpg")
         self.Aceptar=Button(text="Aceptar")
-        self.Aceptar.bind(on_press=self.vistapenpers)
+
+        self.Aceptar.bind(on_press=self.vistapenlug)
+        self.fotos = Button(text="FotosAceptar")
+        self.fotos.bind(on_press=self.printerPersonas)
         self.gLayoutToggle.add_widget(self.tgbtnAmigos)
         self.gLayoutToggle.add_widget(self.tgbtnFamilia)
         self.gLayoutToggle.add_widget(self.tgbtnPareja)
@@ -92,10 +96,9 @@ class Seleccionar(BoxLayout):
         self.gLayoutform.add_widget(self.gLayoutToggle)
         self.gLayoutform.add_widget(self.lblpersonas)
         self.gLayoutform.add_widget(self.lblpersonas2)
-
+        self.gLayoutform.add_widget(self.fotos)
+        self.gLayoutform.add_widget(self.Aceptar)
         self.vistaformpers.add_widget(self.gLayoutform)
-        self.vistaformpers.add_widget(self.Aceptar)
-
         self.add_widget(self.vistaformpers)
     def eventosSel(self,*args):
         self.remove_widget(self.seleccionarVista)
@@ -125,8 +128,11 @@ class Seleccionar(BoxLayout):
         with self.canvas:
             self.rect = Rectangle(pos=self.pos, size=self.size, source="imagenes/eventos.jpg")
         self.Aceptar = Button(text="Aceptar")
-        self.Aceptar.bind(on_press=self.vistapeneven)
 
+        self.Aceptar.bind(on_press=self.vistapenlug)
+        self.fotos = Button(text="FotosAceptar")
+
+        self.fotos.bind(on_press=self.printerPersonas)
         self.gLayoutform.add_widget(self.lblquien)
         self.gLayoutform.add_widget(self.lblquien2)
 
@@ -134,9 +140,9 @@ class Seleccionar(BoxLayout):
         self.gLayoutform.add_widget(self.lbldonde2)
         self.gLayoutform.add_widget(self.lblpersonas)
         self.gLayoutform.add_widget(self.lblpersonas2)
-
+        self.gLayoutform.add_widget(self.fotos)
+        self.gLayoutform.add_widget(self.Aceptar)
         self.vistaformpers.add_widget(self.gLayoutform)
-        self.vistaformpers.add_widget(self.Aceptar)
 
         self.add_widget(self.vistaformpers)
 
@@ -167,6 +173,7 @@ class Seleccionar(BoxLayout):
         with self.canvas:
             self.rect = Rectangle(pos=self.pos, size=self.size, source="imagenes/Lugares.jpg")
         self.Aceptar = Button(text="Aceptar")
+        self.fotos = Button(text="FotosAceptar")
         self.Aceptar.bind(on_press=self.vistapenlug)
 
         self.gLayoutform.add_widget(self.lblquien)
@@ -177,8 +184,10 @@ class Seleccionar(BoxLayout):
         self.gLayoutform.add_widget(self.lblpersonas)
         self.gLayoutform.add_widget(self.lblpersonas2)
 
+        self.gLayoutform.add_widget(self.fotos)
+        self.gLayoutform.add_widget(self.Aceptar)
+
         self.vistaformpers.add_widget(self.gLayoutform)
-        self.vistaformpers.add_widget(self.Aceptar)
 
         self.add_widget(self.vistaformpers)
 
@@ -223,59 +232,23 @@ class Seleccionar(BoxLayout):
     def select(self,filename):
         try:
             for i in filename:
-                print("españa")
+                print("no funciona")
         except:
             pass
-    pass
-
-
-
-'''class Filechooser(BoxLayout):
-
-    def algo(self,*args):
-        self.box = BoxLayout(orientation="vertical")
-
-        self.buscadorArch=FileChooserIconView(
-            on_selection=root.select(*args)
-        )
-
-        self.box.add_widget(self.buscadorArch)
-
-
-        self.add_widget(box)
-'''
 
 
 
 
 
-
-
-
-
-
-
-
-
-'''class abrirFotos(BoxLayout):
-    def vistaArch(self):
-        self.box=BoxLayout(orientation="vertical")
-
-        self.box2=BoxLayout(size_hint_y=None,height=30)
-
-        self.cargar=Button(text="Cargar")
-        self.guardar=Button(text="Guardar")
-
-        self.box2.add_widget(self.cargar)
-        self.box2.add_widget(self.guardar)
-
-        self.box3=BoxLayout()
-
-        self.input=TextInput(text='')
-
-
-        self.box.add_wigdet(self.box2)
-        self.add_widget(box)
+    def printerPersonas(self,*args):
+        print("EEEEE")
+        self.rep=canvas.Canvas('pdf/Personas.pdf')
+        self.rep.setFont('Helvetica-Bold',size=9)
+        texto=('Apareces con: '+self.lblquien2.text)
+        self.rep.drawString(100,750,texto)
+        texto2=('Apareces en: '+self.lbldonde2.text)
+        self.rep.drawString(200,750,texto2)
+        self.rep.save()
 
     pass
-'''
+
