@@ -132,7 +132,7 @@ class Seleccionar(BoxLayout):
         self.Aceptar.bind(on_press=self.vistapenlug)
         self.fotos = Button(text="FotosAceptar")
 
-        self.fotos.bind(on_press=self.printerPersonas)
+        self.fotos.bind(on_press=self.printerEventos)
         self.gLayoutform.add_widget(self.lblquien)
         self.gLayoutform.add_widget(self.lblquien2)
 
@@ -175,6 +175,7 @@ class Seleccionar(BoxLayout):
         self.Aceptar = Button(text="Aceptar")
         self.fotos = Button(text="FotosAceptar")
         self.Aceptar.bind(on_press=self.vistapenlug)
+        self.fotos.bind(on_press=self.printerLugares)
 
         self.gLayoutform.add_widget(self.lblquien)
         self.gLayoutform.add_widget(self.lblquien2)
@@ -241,14 +242,40 @@ class Seleccionar(BoxLayout):
 
 
     def printerPersonas(self,*args):
-        print("EEEEE")
+        print("Pdf personas creado")
         self.rep=canvas.Canvas('pdf/Personas.pdf')
         self.rep.setFont('Helvetica-Bold',size=9)
         texto=('Apareces con: '+self.lblquien2.text)
         self.rep.drawString(100,750,texto)
         texto2=('Apareces en: '+self.lbldonde2.text)
-        self.rep.drawString(200,750,texto2)
+        self.rep.drawString(100,600,texto2)
+        texto = ('Apareces con: ' + self.lblquien2.text)
+        self.rep.drawString(100, 350, texto)
+        texto2 = ('Personas: ' + self.lblpersonas2.text)
+        self.rep.drawString(100, 100, texto2)
         self.rep.save()
+    def printerEventos(self,*args):
+        print("Pdf eventos creado")
+        self.rep=canvas.Canvas('pdf/Eventos.pdf')
+        self.rep.setFont('Helvetica-Bold',size=9)
+        texto=('Apareces con: '+self.lblquien2.text)
+        self.rep.drawString(100,750,texto)
+        texto2=('El evento es: '+self.lbldonde2.text)
+        self.rep.drawString(100,500,texto2)
+        texto = ('Te gusto: ' + self.lblquien2.text)
+        self.rep.drawString(100, 250, texto)
+        self.rep.save()
+    def printerLugares(self,*args):
+        print("Pdf Lugares creado")
+        self.rep=canvas.Canvas('pdf/Lugar.pdf')
+        self.rep.setFont('Helvetica-Bold',size=9)
+        texto=('Apareces con: '+self.lblquien2.text)
+        self.rep.drawString(100,750,texto)
+        texto2=('Las sacaste en: '+self.lbldonde2.text)
 
+        texto = ('Te gusto: ' + self.lblquien2.text)
+        self.rep.drawString(100, 500, texto)
+        self.rep.drawString(100,250,texto2)
+        self.rep.save()
     pass
 
