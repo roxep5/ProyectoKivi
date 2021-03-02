@@ -29,7 +29,7 @@ class MyApp(App):
         layout = BoxLayout(orientation='vertical', spacing=75, padding=50)
 
         with layout.canvas:
-            self.rect = Rectangle(source='Avalanche.png')
+            self.rect = Rectangle(source='Imagenes/Avalanche.png')
         layout.bind(on_size=self.update)
 
         lbl = Label(text='BIENVENIDO/A A AVALANCHE',color= (1.5,1.35,0.9,2),font_size= 45)

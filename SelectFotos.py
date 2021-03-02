@@ -20,10 +20,10 @@ class MyApp(App):
     def build(self):
         layout = BoxLayout(orientation='vertical', spacing=20, padding=50)
         with layout.canvas:
-            self.rect = Rectangle(source='bosque.png')
+            self.rect = Rectangle(source='Imagenes/bosque.png')
         layout.bind(on_size=self.update)
 
-        img = Image(source='icono.png',pos_hint= {'center_x': 0.5})
+        img = Image(source='Imagenes/icono.png',pos_hint= {'center_x': 0.5})
         btn = Button(text='<- Volver', size_hint=(0.17,0.25),pos_hint= {'center_x': 0.1},color= (1.5,1.6,0.9,2))
         btn1 = Button(text='Elija sus fotos',size_hint=(0.35,0.3),pos_hint= {'center_x': 0.5},color= (1.5,1.6,0.9,2))
         btn2 = Button(text='Ver numero de fotos seleccionadas', size_hint=(0.35, 0.3), pos_hint={'center_x': 0.5}, color=(1.5, 1.6, 0.9, 2))

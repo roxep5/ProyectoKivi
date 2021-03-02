@@ -25,7 +25,7 @@ class MyApp(App):
         layout = BoxLayout(orientation='vertical', spacing=20, padding=50)
 
         with layout.canvas:
-            self.rect = Rectangle(source='bosque.png')
+            self.rect = Rectangle(source='Imagenes/bosque.png')
         layout.bind(on_size=self.update)
 
 
