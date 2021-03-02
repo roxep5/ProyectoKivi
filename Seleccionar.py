@@ -83,6 +83,7 @@ class Seleccionar(BoxLayout):
         self.Aceptar.bind(on_press=self.vistapenlug)
         self.fotos = Button(text="FotosAceptar")
         self.fotos.bind(on_press=self.printerPersonas)
+        self.fotos.bind(on_press=self.vistaFinal)
         self.gLayoutToggle.add_widget(self.tgbtnAmigos)
         self.gLayoutToggle.add_widget(self.tgbtnFamilia)
         self.gLayoutToggle.add_widget(self.tgbtnPareja)
@@ -133,6 +134,8 @@ class Seleccionar(BoxLayout):
         self.fotos = Button(text="FotosAceptar")
 
         self.fotos.bind(on_press=self.printerEventos)
+
+        self.fotos.bind(on_press=self.vistaFinal)
         self.gLayoutform.add_widget(self.lblquien)
         self.gLayoutform.add_widget(self.lblquien2)
 
@@ -176,6 +179,7 @@ class Seleccionar(BoxLayout):
         self.fotos = Button(text="FotosAceptar")
         self.Aceptar.bind(on_press=self.vistapenlug)
         self.fotos.bind(on_press=self.printerLugares)
+        self.fotos.bind(on_press=self.vistaFinal)
 
         self.gLayoutform.add_widget(self.lblquien)
         self.gLayoutform.add_widget(self.lblquien2)
@@ -194,7 +198,7 @@ class Seleccionar(BoxLayout):
 
     def vistaFinal(self, *args):
         self.remove_widget(self.vistaformpers)
-        self.lable=Label(text=("hello!! "+self.lblquien2.text))
+        self.lable=Label(text=("Hola, Debido a un problema no podemos gestionar las fotos, lo solucionaremos en un futuro.\nEl PDF ha sido creado"))
         self.add_widget(self.lable)
 
     def vistapenpers(self, *args):
@@ -254,6 +258,8 @@ class Seleccionar(BoxLayout):
         texto2 = ('Personas: ' + self.lblpersonas2.text)
         self.rep.drawString(100, 100, texto2)
         self.rep.save()
+        self.remove_widget(self.vistaformpers)
+
     def printerEventos(self,*args):
         print("Pdf eventos creado")
         self.rep=canvas.Canvas('pdf/Eventos.pdf')
