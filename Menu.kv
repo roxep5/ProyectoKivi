@@ -1,0 +1,47 @@
+<MyLayout>:
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'Avalanche.png'
+
+        padding: 50
+        spacing: 75
+
+        Label:
+            text: "BIENVENIDO/A A AVALANCHE"
+            font_size: 45
+            color: 1.5,1.35,0.9,2
+
+        Button:
+
+            text: "Empezar"
+            pos_hint: {'center_x': 0.5}
+            size_hint: (None, None)
+            width: 100
+            height: 50
+            color: 1.5,1.6,0.9,2
+
+        Button:
+
+            text: "Salir"
+            pos_hint: {'center_x': 0.5}
+            size_hint: (None, None)
+            width: 100
+            height: 50
+            color: 1.5,1.6,0.9,2
+
+
+
+
+
+
+
+
+
+
+
+

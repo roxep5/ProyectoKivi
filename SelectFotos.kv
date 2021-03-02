@@ -1,0 +1,58 @@
+<MyLayout3>:
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'aurora.png'
+
+        padding: 125
+        spacing: 25
+
+        Button:
+            text: "<- Volver"
+            pos_hint: {'center_x': -0.05}
+            size_hint: (None, None)
+            width: 100
+            height: 50
+            color: 1.5,1.6,0.9,2
+
+
+
+        Image:
+            source: 'Imagenes/icono.png'
+
+
+        Button:
+
+            text: "Elija sus fotos: (imagen fotos)"
+            pos_hint: {'center_x': 0.5}
+            size_hint: (None, None)
+            width: 250
+            height: 50
+            color: 1.5,1.6,0.9,2
+
+        Button:
+
+            text: "Ver numero de fotos seleccionadas"
+            pos_hint: {'center_x': 0.5}
+            size_hint: (None, None)
+            width: 250
+            height: 50
+            color: 1.5,1.6,0.9,2
+
+        Button:
+
+            text: "Continuar ->"
+            pos_hint: {'center_x': 1.05}
+            size_hint: (None, None)
+            width: 100
+            height: 50
+            color: 1.5,1.6,0.9,2
+
+
+
+
+
