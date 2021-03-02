@@ -1,0 +1,58 @@
+<PreguntasEventos>
+    orientation:"vertical"
+    padding: 50
+    spacing: 100
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'imagenes/eventos.jpg'
+        Color:
+            rgb:48, 48, 118
+    GridLayout:
+        cols:2
+        size_hint:1,0.5
+        spacing: dp(20)
+        Label:
+            id:Quien
+            text:"¿En qué evento has sacado estas fotos?"
+            size_hint:0.25,0.25
+            text_size:self.size
+            font_size:12
+            valign:'center'
+            halign:'center'
+        TextInput:
+            multiline:False
+            size:20,20
+            margin:10
+            size_hint:0.25,0.25
+        Label:
+            id:Donde
+            text:"¿Quiénes aparecen?\n(si no aparece nadie, dejelo en blanco)"
+            size_hint:0.25,0.25
+            text_size:self.size
+            font_size:12
+            valign:'center'
+            halign:'center'
+        TextInput:
+            multiline:False
+            size:20,20
+            size_hint:0.25,0.25
+        Label:
+            id:mylabel
+            text:"¿Cuánto te gusta o te gustó ese sitio?"
+            size_hint:0.25,0.25
+            text_size:self.size
+            font_size:12
+            valign:'center'
+            halign:'center'
+        TextInput:
+            multiline:False
+            size_hint:0.25,0.25
+    Button:
+        size: self.size
+        text: "Aceptar"
+        on_press: print(mylabel.text)
+        size_hint:0.25,0.15
+

@@ -1,16 +1,24 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from PreguntasPersonas import *
+from PreguntasLugares import *
+from PreguntasEventos import *
+from Seleccionar import *
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+class Preguntas(App):
+    def build(self):
+        '''self.load_kv('PreguntasPersonas.kv')
+        return PreguntasPersonas()
+
+        self.load_kv('PreguntasLugares.kv')
+        return PreguntasLugares()
+        '''
+        '''self.load_kv('PreguntasEventos.kv')
+        return PreguntasEventos()
+        '''
+        # self.load_kv('Seleccionar.kv')
+        return Seleccionar()
+Preguntas().run()
