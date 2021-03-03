@@ -53,7 +53,7 @@ class MyApp(App):
         self.rect.size = self.root.size
         self.rect.pos = self.root.pos
 
-
+#toma
 
 
 MyApp().run()
